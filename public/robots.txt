@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /account/
+Disallow: /login
+Disallow: /signup
+Disallow: /settings
+
+Sitemap: https://cubemonke.com/sitemap.xml

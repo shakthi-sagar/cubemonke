@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      ;(() => {
+        const themeKey = "theme"
+        const defaultTheme = "dark"
+        const colorSchemeQuery = "(prefers-color-scheme: dark)"
+
+        try {
+          const storedTheme = localStorage.getItem(themeKey)
+          const theme =
+            storedTheme === "dark" ||
+            storedTheme === "light" ||
+            storedTheme === "system"
+              ? storedTheme
+              : defaultTheme
+          const resolvedTheme =
+            theme === "system"
+              ? window.matchMedia(colorSchemeQuery).matches
+                ? "dark"
+                : "light"
+              : theme
+
+          document.documentElement.classList.remove("light", "dark")
+          document.documentElement.classList.add(resolvedTheme)
+          document.documentElement.style.colorScheme = resolvedTheme
+        } catch {
+          document.documentElement.classList.add(defaultTheme)
+          document.documentElement.style.colorScheme = defaultTheme
+        }
+      })()
+    </script>
+    <meta name="theme-color" content="#020617" />
+    <meta name="application-name" content="CubeMonke" />
+    <meta
+      name="description"
+      content="Practice speedcubing with a virtual 3D cube timer, custom scrambles, replay playback and solve analytics. Free, open source, and everything stays in your browser."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:site_name" content="CubeMonke" />
+    <meta
+      property="og:title"
+      content="CubeMonke | Speedcubing Timer, Virtual Cube & Replays"
+    />
+    <meta
+      property="og:description"
+      content="Practice speedcubing with a virtual 3D cube timer, custom scrambles, replay playback and solve analytics. Free, open source, and everything stays in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cubemonke.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="CubeMonke | Speedcubing Timer, Virtual Cube & Replays"
+    />
+    <meta
+      name="twitter:description"
+      content="Practice speedcubing with a virtual 3D cube timer, custom scrambles, replay playback and solve analytics. Free, open source, and everything stays in your browser."
+    />
+    <link rel="canonical" href="https://cubemonke.com/" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>CubeMonke | Speedcubing Timer, Virtual Cube & Replays</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CubeMonke",
+        "url": "https://cubemonke.com/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "description": "Practice speedcubing with a virtual 3D cube timer, custom scrambles, replay playback and solve analytics. Free, open source, and everything stays in your browser.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>
