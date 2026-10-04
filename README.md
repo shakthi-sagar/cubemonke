@@ -15,7 +15,7 @@ A speedcubing timer with a virtual 3D cube you turn from the keyboard. Live at
 pnpm install
 pnpm dev          # http://localhost:5173
 pnpm build
-pnpm deploy       # build + deploy dist/ to Cloudflare Pages (project "cubemonke")
+pnpm deploy       # build + deploy dist/ as a Cloudflare Worker (static assets) on cubemonke.com
 ```
 
 Stack: React, TypeScript, Vite, Tailwind, three.js via react-three-fiber.
